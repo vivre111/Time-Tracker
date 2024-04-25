@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleRegister = async () => {
     try {
@@ -21,6 +23,7 @@ function Register() {
       });
       console.log("Registration successful", token);
       // Redirect or do something upon success
+      navigate("/home");
     } catch (error) {
       console.error(
         "Registration failed",

@@ -6,12 +6,14 @@ import Home from "./pages/Home";
 import TimeEntry from "./pages/TimeEntry/index.jsx";
 import Project from "./pages/Project/index.jsx";
 import User from "./pages/User/index.jsx";
+import LogoutPage from "./pages/Logout.jsx";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/logout" element={<LogoutPage />} />
       <Route path="/register" element={<Register />} />
       <Route path="/home" element={<Home />} />
       <Route path="/projects" element={<Project />} />

@@ -91,15 +91,22 @@ function TimeEntryForm({ reload }) {
             {errors.userId && <span>This field is required</span>}
           </div>
           <div>
-            <label>Hours (e.g., 3.5):</label>
+            <label>Hours (e.g., 3):</label>
             <input
               {...register("durationInHours", {
                 required: true,
-                validate: (value) => parseFloat(value) >= 0,
+                validate: (value) => {
+                  const number = parseInt(value, 10);
+                  return (
+                    !isNaN(number) &&
+                    number >= 0 &&
+                    number === parseFloat(value)
+                  );
+                },
               })}
             />
             {errors.durationInHours && (
-              <span>Please enter a valid number of hours</span>
+              <span>Please enter an integer</span>
             )}
           </div>
           <div>
