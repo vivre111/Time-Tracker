@@ -5,14 +5,18 @@ import Modal from "../../components/Modal"; // Ensure the path is correct based 
 import { getAllProjects } from "../Project/service";
 import { getAllUsers } from "./service";
 
+// modify each project by adding totalDurationHours to it.
 export const calculateTotalHour = (projectData) => {
+  let totalSum = 0;
   for (const projectDataEle of projectData) {
     let sum = 0;
     for (const timeEntry of projectDataEle.timeEntries) {
       sum += parseInt(timeEntry.durationInHours);
+      totalSum += parseInt(timeEntry.durationInHours);
     }
     projectDataEle.totalDurationHours = sum;
   }
+  return totalSum;
 };
 
 function TimeEntryForm({ reload }) {
@@ -28,6 +32,8 @@ function TimeEntryForm({ reload }) {
     },
   });
   const [isModalOpen, setModalOpen] = useState(false);
+
+  // used for <Select/>
   const [projects, setProjects] = useState([]);
   const [users, setUsers] = useState([]);
 
@@ -105,9 +111,7 @@ function TimeEntryForm({ reload }) {
                 },
               })}
             />
-            {errors.durationInHours && (
-              <span>Please enter an integer</span>
-            )}
+            {errors.durationInHours && <span>Please enter an integer</span>}
           </div>
           <div>
             <label>Description:</label>

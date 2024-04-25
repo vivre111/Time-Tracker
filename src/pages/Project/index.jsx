@@ -20,7 +20,13 @@ function Project() {
   return (
     <div>
       <h2>Projects</h2>
+      {
+        // create a new project
+      }
       <CreateProjectForm reload={fetchData}></CreateProjectForm>
+      {
+        // display all existing projects
+      }
       <ul>
         {projects.map((project) => (
           <li key={project.id}>

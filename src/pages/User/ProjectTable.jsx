@@ -15,9 +15,9 @@ export const ProjectTable = ({ projectData }) => {
           <>
             <th></th> {/* Placeholder for expand/collapse button */}
             <th>Project Name</th>
+            <th>Total Duration (hrs)</th>
             <th>Description</th>
             <th>Created At</th>
-            <th>Total Duration (Hours)</th>
           </>
         </tr>
       </thead>
@@ -43,9 +43,9 @@ const ProjectRow = ({ project }) => {
           {isOpen ? "-" : "+"}
         </td>
         <td>{project.name}</td>
+        <td>{project.totalDurationHours}</td>
         <td>{project.description}</td>
         <td>{new Date(project.createdAt).toLocaleDateString()}</td>
-        <td>{project.totalDurationHours}</td>
       </tr>
       {isOpen && (
         <tr>

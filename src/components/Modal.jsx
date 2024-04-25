@@ -1,5 +1,6 @@
 import React from "react";
 
+// a floating modal/box that appears when isOpen=true, children is its inner jsx
 function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 

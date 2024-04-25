@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Cookies from "js-cookie";
-import axios from "axios";
-import axiosApi from "../../utils/axiosApi";
-import TimeEntryForm from "./CreateTimeEntry";
+import CreateTimeEntryForm from "./CreateTimeEntry";
 import { getAllTimeEntries } from "./service";
 
 function TimeEntry() {
@@ -19,7 +16,7 @@ function TimeEntry() {
   return (
     <div>
       <h2>Time Entries</h2>
-      <TimeEntryForm reload={fetchData} />
+      <CreateTimeEntryForm reload={fetchData} />
       <table>
         <thead>
           <tr>
