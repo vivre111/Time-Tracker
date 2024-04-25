@@ -48,8 +48,7 @@ function User() {
 
   return (
     <div>
-      <h1>Project Management</h1>
-      <TimeEntryForm></TimeEntryForm>
+      <TimeEntryForm reload={fetchData}></TimeEntryForm>
       <h2>Your Projects this week</h2>
       <ProjectTable projectData={currentWeekProjectData}></ProjectTable>
       <h2>Your historical Projects</h2>

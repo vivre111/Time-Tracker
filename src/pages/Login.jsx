@@ -48,6 +48,9 @@ function Login() {
         placeholder="Password"
       />
       <button onClick={handleLogin}>Login</button>
+      <div style={{ paddingTop: 20 }}>
+        <button onClick={() => navigate("/register")}> register</button>
+      </div>
     </div>
   );
 }

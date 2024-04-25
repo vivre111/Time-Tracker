@@ -31,7 +31,7 @@ function CreateProjectForm({ reload }) {
 
   return (
     <>
-      <button onClick={() => setModalOpen(true)}>Create Time Entry</button>
+      <button onClick={() => setModalOpen(true)}>Create Project</button>
       <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2>Create Project</h2>
