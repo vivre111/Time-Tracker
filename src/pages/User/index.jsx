@@ -14,7 +14,6 @@ function User() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(projectData);
 
   const currentWeekProjectData = projectData
     .map((project) => {
@@ -54,8 +53,6 @@ function User() {
   currentWeekProjectData.sort(
     (a, b) => b.totalDurationHours - a.totalDurationHours
   );
-
-  console.log(currentWeekProjectData, historicalProjectData);
 
   return (
     <div>
