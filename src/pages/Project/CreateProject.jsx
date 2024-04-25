@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import axiosApi from "../../utils/axiosApi";
 import Modal from "../../components/Modal"; // Ensure the path is correct based on your project structure
-import { getAllProjects } from "../Project/service";
-import { getAllUsers } from "./service";
 
 function CreateProjectForm({ reload }) {
   const {
@@ -11,7 +9,6 @@ function CreateProjectForm({ reload }) {
     handleSubmit,
     formState: { errors },
     reset,
-    setValue,
   } = useForm();
   const [isModalOpen, setModalOpen] = useState(false);
 

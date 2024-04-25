@@ -18,6 +18,7 @@ function User() {
 
   const currentWeekProjectData = projectData
     .map((project) => {
+      // TODO: unit test it
       // Get the date of the current Monday (00:00am)
       const mondayThisWeek = new Date();
       mondayThisWeek.setHours(0, 0, 0, 0);
@@ -39,19 +40,31 @@ function User() {
       };
     })
     .filter((project) => project.timeEntries.length !== 0);
-
+  // we have 2 data-arrays to display: historicalProjectData and currentWeekProjectData
   const historicalProjectData = projectData;
-  calculateTotalHour(historicalProjectData);
-  calculateTotalHour(currentWeekProjectData);
+
+  // calculate total hour for each data
+  const historicalTotal = calculateTotalHour(historicalProjectData);
+  const thisWeekTotal = calculateTotalHour(currentWeekProjectData);
+
+  // sort each data on project that take longest appears first
+  historicalProjectData.sort(
+    (a, b) => b.totalDurationHours - a.totalDurationHours
+  );
+  currentWeekProjectData.sort(
+    (a, b) => b.totalDurationHours - a.totalDurationHours
+  );
 
   console.log(currentWeekProjectData, historicalProjectData);
 
   return (
     <div>
       <TimeEntryForm reload={fetchData}></TimeEntryForm>
-      <h2>Your Projects this week</h2>
+      <h2>Your Projects this week: {`${thisWeekTotal}hrs`}</h2>
       <ProjectTable projectData={currentWeekProjectData}></ProjectTable>
-      <h2>Your historical Projects</h2>
+      <h2 style={{ paddingTop: "20px" }}>
+        Your historical Projects: {`${historicalTotal}hrs`}
+      </h2>
       <ProjectTable projectData={historicalProjectData}></ProjectTable>
     </div>
   );
