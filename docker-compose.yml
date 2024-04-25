@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  app:
+    build:
+      context: .  # Add this to specify the directory containing the Dockerfile and your application files
+      dockerfile: Dockerfile
+    container_name: frontend_app 
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app  # Ensure local changes are reflected in the container
+      - /app/node_modules  # Keep node_modules in the container, not affected by the host
+    working_dir: /app
+    command: yarn start

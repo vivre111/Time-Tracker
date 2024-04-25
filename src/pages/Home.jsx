@@ -11,7 +11,7 @@ function Home() {
             </p>
             <div>
                 <Link to="/projects" style={{ marginRight: '10px' }}>View Projects</Link>
-                <Link to="/tasks">View Tasks</Link>
+                <Link to="/time-entries">View Time Entries</Link>
             </div>
         </div>
     );

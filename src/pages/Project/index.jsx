@@ -1,24 +1,26 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
+import axiosApi from "../../utils/axiosApi";
+import CreateProjectForm from "./CreateProject";
+import { getAllProjects } from "./service";
 
-function Projects() {
+function Project() {
   const [projects, setProjects] = useState([]);
 
+  const fetchData = async () => {
+    const projects = await getAllProjects();
+    setProjects(projects);
+  };
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8000/api/projects", {
-        headers: {
-          Authorization: `Bearer ${Cookies.get("userToken")}`,
-        },
-      })
-      .then((response) => setProjects(response.data.projects))
-      .catch((error) => console.error("Error fetching projects:", error));
+    fetchData();
   }, []);
 
   return (
     <div>
       <h2>Projects</h2>
+      <CreateProjectForm reload={fetchData}></CreateProjectForm>
       <ul>
         {projects.map((project) => (
           <li key={project.id}>
@@ -30,4 +32,4 @@ function Projects() {
   );
 }
 
-export default Projects;
+export default Project;

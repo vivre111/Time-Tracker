@@ -1,0 +1,10 @@
+.project-row td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+.project-row td:first-child {
+    text-align: center;
+    width: 50px; /* Set a fixed width for the toggle cell if desired */
+}
