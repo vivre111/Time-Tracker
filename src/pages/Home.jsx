@@ -5,8 +5,9 @@ import { getAllUsers } from "./TimeEntry/service";
 import User from "./User";
 
 function Home() {
-  // todo: if not logged in, go to login page.
   useEffect(() => {
+    // TODO: calling getAllUsers() here is just to call a protected API, so the user can be redirected to the login page if not authorized.
+    // current user's credential should be stored in useContext instead
     getAllUsers();
   }, []);
   return (

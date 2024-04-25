@@ -53,19 +53,17 @@ const ProjectRow = ({ project }) => {
             <table style={{ width: "100%", border: "1px solid black" }}>
               <thead>
                 <tr>
-                  <th>ID</th>
                   <th>Description</th>
-                  <th>Start At</th>
                   <th>Duration (Hours)</th>
+                  <th>Start At</th>
                 </tr>
               </thead>
               <tbody>
                 {project.timeEntries.map((entry) => (
                   <tr key={entry.id} className="project-row">
-                    <td>{entry.id}</td>
                     <td>{entry.description}</td>
-                    <td>{new Date(entry.startAt).toLocaleString()}</td>
                     <td>{entry.durationInHours}</td>
+                    <td>{new Date(entry.startAt).toLocaleString()}</td>
                   </tr>
                 ))}
               </tbody>
