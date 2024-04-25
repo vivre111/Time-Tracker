@@ -18,9 +18,9 @@ function Home() {
       </h2>
       <div>
         <Link to="/projects" style={{ marginRight: "10px" }}>
-          View Projects
+          View/Create Projects
         </Link>
-        <Link to="/time-entries">View Time Entries</Link>
+        <Link to="/time-entries">View/Create Time Entries</Link>
       </div>
       <div style={{ marginTop: "30px" }}>
         <Link to="/logout">Logout</Link>
