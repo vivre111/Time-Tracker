@@ -27,7 +27,7 @@ This is the Frontend Counterpart of https://github.com/vivre111/Time-Tracker-api
 to run frontend on docker:
 
 ```bash
-git clone https://yourrepositoryurl.com
+git clone https://github.com/vivre111/Time-Tracker
 cd Time-Tracker
 docker compose up
 ```
@@ -35,7 +35,7 @@ docker compose up
 to run locally:
 
 ```bash
-git clone https://yourrepositoryurl.com
+git clone https://github.com/vivre111/Time-Tracker
 cd Time-Tracker
 yarn
 yarn start
